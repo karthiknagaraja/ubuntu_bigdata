@@ -1,0 +1,3 @@
+resources/*.gz
+resources/*.tgz
+.vagrant
