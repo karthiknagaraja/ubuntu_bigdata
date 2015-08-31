@@ -17,10 +17,10 @@ Vagrant.configure(2) do |config|
     master.vm.network :forwarded_port, host: 8080, guest: 8080, auto_correct: true                 # Zeppeline UI (Driver)
     master.vm.network :forwarded_port, host: 10000, guest: 10000, auto_correct: true               # beeline hive jdbc connectin port
     master.vm.network :forwarded_port, guest: 8020, host: 8020
-    master.vm.network :forwarded_port, guest: 50070, host: 50070
+    master.vm.network :forwarded_port, guest: 50070, host: 50070                   #Hadoop DFS status
     master.vm.network :forwarded_port, guest: 50075, host: 50075
-    master.vm.network :forwarded_port, guest: 8088, host: 8088
-    master.vm.network :forwarded_port, guest: 8042, host: 8042
+    master.vm.network :forwarded_port, guest: 8088, host: 8088                #To know hadoop application status
+    master.vm.network :forwarded_port, guest: 8042, host: 8042                #Hadoop Node manager
     master.vm.hostname = "bigdata"
     master.vm.usable_port_range = 4040..4090
     master.vm.synced_folder "../../projects", "/projects"
@@ -28,7 +28,8 @@ Vagrant.configure(2) do |config|
     master.vm.synced_folder "../../temp_dir", "/temp_dir"
     master.vm.provider :virtualbox do |v|
       v.name = master.vm.hostname.to_s
-      v.customize ["modifyvm", :id, "--memory", "2048"]
+      v.customize ["modifyvm", :id, "--memory", "3072"]
+      v.customize ["modifyvm", :id, "--cpus", "2"] 
     end
     #Provisioning required softwares
     master.vm.provision "shell", path: "setup-ubuntu.sh"
