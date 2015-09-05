@@ -26,10 +26,12 @@ Vagrant.configure(2) do |config|
     master.vm.synced_folder "../../projects", "/projects"
     master.vm.synced_folder "../../data", "/data"
     master.vm.synced_folder "../../temp_dir", "/temp_dir"
+    master.vm.synced_folder "../../softwares", "/softwares"
+    master.vm.synced_folder "../../eclipse_workspace", "/eclipse_workspace"
     master.vm.provider :virtualbox do |v|
       v.name = master.vm.hostname.to_s
       v.customize ["modifyvm", :id, "--memory", "3072"]
-      v.customize ["modifyvm", :id, "--cpus", "2"] 
+      v.customize ["modifyvm", :id, "--cpus", "2"]
     end
     #Provisioning required softwares
     master.vm.provision "shell", path: "setup-ubuntu.sh"

@@ -4,6 +4,8 @@
 #apt-get -y -q upgrade
 apt-get -y -q install software-properties-common htop
 apt-get -y -q install dos2unix
+apt-get -y -q install unzip
+apt-get -y -q install bsdtar
 
 add-apt-repository ppa:webupd8team/java -y
 apt-get -y -q update
