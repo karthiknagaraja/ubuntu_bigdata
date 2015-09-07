@@ -16,7 +16,7 @@ master.vm.synced_folder "../../softwares", "/softwares"
 master.vm.synced_folder "../../eclipse_workspace", "/eclipse_workspace"
 
 ```
-Once virutal machine image is up and running, 'vagrant ssh' would help you to login into the virtual machine. Please run following command to bring up all necessary hadoop yarn and hbase daemons. It is mandatory. Otherwise, you would be able to run any hadoop hdfs commands and pig,hive would not work properly.
+Once virutal machine image is up and running, 'vagrant ssh' would help you to login into the virtual machine. Please run following command to bring up all necessary hadoop yarn and hbase daemons. It is mandatory. Otherwise, you would not be able to run any hadoop hdfs commands and pig,hive would not work properly.
 
 Please run the following command once you login into the image.
 
