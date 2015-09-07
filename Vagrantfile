@@ -21,6 +21,10 @@ Vagrant.configure(2) do |config|
     master.vm.network :forwarded_port, guest: 50075, host: 50075
     master.vm.network :forwarded_port, guest: 8088, host: 8088                #To know hadoop application status
     master.vm.network :forwarded_port, guest: 8042, host: 8042                #Hadoop Node manager
+    master.vm.network :forwarded_port, guest: 16010, host: 16010		#Hbase UI
+    master.vm.network :forwarded_port, guest: 16030, host: 16030		#Hbase region
+    master.vm.network :forwarded_port, guest: 9090, host:9090			#Hbase thrift server
+
     master.vm.hostname = "bigdata"
     master.vm.usable_port_range = 4040..4090
     master.vm.synced_folder "../../projects", "/projects"
@@ -40,6 +44,7 @@ Vagrant.configure(2) do |config|
     master.vm.provision "shell", path: "setup-hive.sh"
     master.vm.provision "shell", path: "setup-pig.sh"
     master.vm.provision "shell", path: "setup-spark.sh"
+    master.vm.provision "shell", path: "setup-hbase.sh"
     master.vm.provision "shell", path: "setup-zeppelin.sh"
 
   end
