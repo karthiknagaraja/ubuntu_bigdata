@@ -39,6 +39,13 @@ ZEPPELIN_MIRROR_DOWNLOAD=
 ZEPPELIN_RES_DIR=/vagrant/resources/zeppelin
 ZEPPELIN_CONF_DIR=/usr/local/zeppelin/conf
 
+#HBase
+HBASE_VERSION=hbase-1.1.2
+HBASE_ARCHIVE=hbase-1.1.2-bin.tar.gz
+HBASE_MIRROR_DOWNLOAD=http://www.motorlogy.com/apache//hbase/1.1.2/hbase-1.1.2-bin.tar.gz
+HBASE_RES_DIR=/vagrant/resources/hbase
+HBASE_CONF_DIR=/usr/local/hbase/conf
+
 
 #ssh
 SSH_RES_DIR=/vagrant/resources/ssh
